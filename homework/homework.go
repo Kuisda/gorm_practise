@@ -19,11 +19,11 @@ type emp struct {
 	Deptno   int       `gorm:"column:DEPTNO;type:int;unsigned;"`
 }
 
-func (emp) TableName() string {
+func (emp) TableName() string { //change to match table name
 	return "emp"
 }
 func main() {
-	dsn := "root:$kycer645@tcp(127.0.0.1:3306)/homework?charset=utf8&parseTime=True&loc=Local&timeout=10s"
+	dsn := "root:kycer645@tcp(127.0.0.1:3306)/homework?charset=utf8&parseTime=True&loc=Local&timeout=10s"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("connected fail,err=" + err.Error())
@@ -40,7 +40,6 @@ func main() {
 	for _, v := range exams {
 		fmt.Printf("%-10s %-8s %d\n", v.Ename, v.Job, v.Sal)
 	}
-
 }
 
 /*丢几个网站，这一块就不建新的笔记了
