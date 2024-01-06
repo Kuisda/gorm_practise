@@ -16,6 +16,7 @@ type Token struct {
 }
 
 func main() {
+	//change 'password' to your database's password
 	dsn := "root:password@tcp(127.0.0.1:3306)/test?charset=utf8&parseTime=True&loc=Local&timeout=10s"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
